@@ -6,7 +6,7 @@ int main()
     int userIn,randomNum,guessTotal,TrueFalse; 
     
     srand(time(0)); //allows random number to be different every time code runs
-    cout << "Try guessing the random number!\n"; //States the goal of the user
+    cout << "Try guessing the random number between 1 and 100!\n"; //States the goal of the user
     guessTotal = 0; //Sets total amount of guesses to none
     TrueFalse = 0; //a check to see if guess was correct, otherwise stays at zero
     randomNum = rand()%101; //chooses random number from program boot
