@@ -14,19 +14,19 @@ int main()
         cout << "What's your guess?\n";
         cin >> userIn; //asks for user input
         if (userIn == randomNum) { //if the user input is correct, inform them they won
-            cout << "Your guess, " << userIn << " was correct!\n";
+            cout << "Your guess, " << userIn << ", was correct!\n";
             guessTotal = guessTotal + 1; //increases total amount of guesses by 1
             cout << "Your Total amount of guesses is: " << guessTotal << "\n"; //displays total amount of guesses
             TrueFalse = 1; //sets TrueFalse to True
             return 0; //stops code if correct
         } else {
             if (userIn > randomNum) { //if incorrect guess was too high, informs the user and increases guesses by 1
-                cout << "Your guess, " << userIn << " was too high!\n";
+                cout << "Your guess, " << userIn << ", was too high!\n";
                 guessTotal = guessTotal + 1; 
                 cout << "Your total amount of guesses is: " << guessTotal << "\n"; //displays total guesses
                 TrueFalse = 0;
             } else { //if incorrect guess was too low, informs the user and increases guesses by 1
-                cout << "Your guess, " << userIn << " was too low!\n";
+                cout << "Your guess, " << userIn << ", was too low!\n";
                 guessTotal = guessTotal + 1;
                 cout << "Your total amount of guesses is: " << guessTotal << "\n"; //displays total guesses
                 TrueFalse = 0;
