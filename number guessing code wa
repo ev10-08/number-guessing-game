@@ -10,27 +10,35 @@ int main()
     guessTotal = 0; //Sets total amount of guesses to none
     TrueFalse = 0; //a check to see if guess was correct, otherwise stays at zero
     randomNum = rand()%101; //chooses random number from program boot
-    while (TrueFalse < 1) { //loops as long as TrueFalse is set to false or zero
+    while (TrueFalse < 1) {
         cout << "What's your guess?\n";
-        cin >> userIn; //asks for user input
-        if (userIn == randomNum) { //if the user input is correct, inform them they won
-            cout << "Your guess, " << userIn << ", was correct!\n";
-            guessTotal = guessTotal + 1; //increases total amount of guesses by 1
-            cout << "Your Total amount of guesses is: " << guessTotal << "\n"; //displays total amount of guesses
-            TrueFalse = 1; //sets TrueFalse to True
-            return 0; //stops code if correct
-        } else {
-            if (userIn > randomNum) { //if incorrect guess was too high, informs the user and increases guesses by 1
-                cout << "Your guess, " << userIn << ", was too high!\n";
-                guessTotal = guessTotal + 1; 
-                cout << "Your total amount of guesses is: " << guessTotal << "\n"; //displays total guesses
-                TrueFalse = 0;
-            } else { //if incorrect guess was too low, informs the user and increases guesses by 1
-                cout << "Your guess, " << userIn << ", was too low!\n";
-                guessTotal = guessTotal + 1;
-                cout << "Your total amount of guesses is: " << guessTotal << "\n"; //displays total guesses
-                TrueFalse = 0;
-            }
+        while (!(cin >> userIn)) {
+            cout << "That isn't a valid input, try again!\n";
+            cin.clear();
+            cin.ignore(10000, '\n');
         }
-    } 
+     if (userIn > 100 or userIn < 1){
+                cout << "Your guess, " << userIn << ", was either above 100, or less than 1. Try Again!\n";
+                guessTotal = guessTotal + 1;
+                cout << "Your total amount of guesses is: " << guessTotal << "\n";
+        } else {
+            if (userIn == randomNum) {
+                cout << "Your guess, " << userIn << ", was correct!\n";
+                guessTotal = guessTotal + 1;
+                cout << "Your Total amount of guesses is: " << guessTotal << "\n";
+                TrueFalse = 1;
+                return 0;
+            } else {
+                if (userIn > randomNum) {
+                    cout << "Your guess, " << userIn << ", was too high!\n";
+                    guessTotal = guessTotal + 1;
+                    cout << "Your total amount of guesses is: " << guessTotal << "\n";
+                } else {
+                    cout << "Your guess, " << userIn << ", was too low!\n";
+                    guessTotal = guessTotal + 1;
+                    cout << "Your total amount of guesses is: " << guessTotal << "\n";
+                }
+            }    
+        }
+    }
 }
