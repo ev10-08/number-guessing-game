@@ -3,42 +3,42 @@ using namespace std;
 
 int main()
 {
-    int userIn,randomNum,guessTotal,TrueFalse; 
-    
+    int userIn,randomNum,guessTotal,TrueFalse;
+
     srand(time(0)); //allows random number to be different every time code runs
     cout << "Try guessing the random number between 1 and 100!\n"; //States the goal of the user
     guessTotal = 0; //Sets total amount of guesses to none
     TrueFalse = 0; //a check to see if guess was correct, otherwise stays at zero
     randomNum = rand()%101; //chooses random number from program boot
-    while (TrueFalse < 1) {
+    while (TrueFalse < 1) { //a check to see if the answer was right or wrong
         cout << "What's your guess?\n";
-        while (!(cin >> userIn)) {
+        while (!(cin >> userIn)) { //prevents any bugs from happening if any external character is inputted
             cout << "That isn't a valid input, try again!\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
-     if (userIn > 100 or userIn < 1){
+     if (userIn > 100 or userIn < 1){ //informs user if guess was too high or too low
                 cout << "Your guess, " << userIn << ", was either above 100, or less than 1. Try Again!\n";
-                guessTotal = guessTotal + 1;
+                guessTotal = guessTotal + 1; //still increases guess amount because it says 1-100
                 cout << "Your total amount of guesses is: " << guessTotal << "\n";
         } else {
-            if (userIn == randomNum) {
+            if (userIn == randomNum) { //if guess was correct, inform user, end code, and stop looping
                 cout << "Your guess, " << userIn << ", was correct!\n";
-                guessTotal = guessTotal + 1;
-                cout << "Your Total amount of guesses is: " << guessTotal << "\n";
+                guessTotal = guessTotal + 1; //increases guess amount by one
+                cout << "Your Total amount of guesses is: " << guessTotal << "\n"; //displays total guesses
                 TrueFalse = 1;
                 return 0;
             } else {
-                if (userIn > randomNum) {
+                if (userIn > randomNum) { //if guess was incorrect and too high, inform user to help narrow down
                     cout << "Your guess, " << userIn << ", was too high!\n";
-                    guessTotal = guessTotal + 1;
-                    cout << "Your total amount of guesses is: " << guessTotal << "\n";
-                } else {
+                    guessTotal = guessTotal + 1; //increases guess total amount by 1
+                    cout << "Your total amount of guesses is: " << guessTotal << "\n"; // displays guess amount
+                } else { //if guess was incorrect and too low, inform user to help narrow down
                     cout << "Your guess, " << userIn << ", was too low!\n";
-                    guessTotal = guessTotal + 1;
-                    cout << "Your total amount of guesses is: " << guessTotal << "\n";
+                    guessTotal = guessTotal + 1; //increases guess total by 1
+                    cout << "Your total amount of guesses is: " << guessTotal << "\n"; //displays guess amount
                 }
-            }    
+            }
         }
     }
 }
